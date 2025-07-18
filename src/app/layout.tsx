@@ -23,11 +23,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-			<Head>
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#000000" />
-        <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
-      </Head>
       <body className={`${styles.page} ${PlusJacartaSans.variable}`}>
         {children}
       </body>

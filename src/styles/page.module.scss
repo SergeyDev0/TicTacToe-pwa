@@ -6,6 +6,11 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+
+	@media screen and (max-width: 540px) {
+		width: 100%;
+		padding: 0 20px;
+	}
 }
 
 .logo {
@@ -18,12 +23,20 @@
 	
 	> img {
 		width: 85px;
+
+		@media screen and (max-width: 500px) {
+			width: 60px;
+		}
 	}
 
 	> span {
 		font-size: 32px;
 		font-weight: 700;
 		line-height: 1;
+
+		@media screen and (max-width: 500px) {
+			font-size: 24px;			
+		}
 	}
 }
 
@@ -32,6 +45,10 @@
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	gap: 1rem;
+
+	@media screen and (max-width: 500px) {
+		gap: .5rem;				
+	}
 
 	button {
 		cursor: pointer;
@@ -70,6 +87,10 @@
 		border-radius: $border-radius;
 		border: 2px solid $text-color;
 
+		@media screen and (max-width: 500px) {
+			padding: 1rem;			
+		}
+
 		&::-webkit-scrollbar {
 			width: 4px;
 		}
@@ -90,6 +111,10 @@
 
 	> p {
 		font-size: 18px;
+
+		@media screen and (max-width: 500px) {
+			font-size: 16px;
+		}
 	}
 }
 
@@ -127,6 +152,7 @@
 			> label {
 				font-weight: 600;
 				font-size: 16px;
+				text-align: center;
 			}
 
 			> input {
@@ -135,6 +161,10 @@
 				border-bottom: 1px solid $text-color;
 				border-radius: 0;
 				text-align: center;
+
+				@media screen and (max-width: 500px) {
+					font-size: 16px;
+				}
 			}
 		}
 	}

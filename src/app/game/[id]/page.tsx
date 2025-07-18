@@ -7,6 +7,7 @@ import { getGame, moveGame } from "@/api/games";
 import { Board, CellValue, CurrentMove, Result } from "@/api/types/games";
 import { PopupMessage } from "@/components/ui/popupMessage/PopupMessage";
 import styles from "@/styles/game.module.scss";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 function Game() {
 	const { id } = useParams<{id: string}>();
@@ -16,6 +17,9 @@ function Game() {
   const [result, setResult] = useState<Result>("None");
   const [chanceReplace, setChanceReplace] = useState<number>(0);
   const [popup, setPopup] = useState<string>("");
+
+	const isTablet = useMediaQuery("(max-width: 790px)");
+	const isPhone = useMediaQuery("(max-width: 500px)");
 
 	useEffect(() => {
 		getStateBoard();
@@ -64,13 +68,29 @@ function Game() {
 
 	const sizeCell = () : number => {
 		if(board.length === 30) {
-			return 25;
+			if(isTablet) {
+				return ((window.innerWidth - 40) / 30);
+			} else {
+				return 25;
+			}
 		} else if (board.length === 10) {
-			return 60;
+			if(isTablet) {
+				return ((window.innerWidth - 40) / 10);
+			} else {
+				return 60;
+			}
 		} else if (board.length === 5) {
-			return 70;
+			if(isPhone) {
+				return ((window.innerWidth - 40) / 5);
+			} else {
+				return 70;
+			}
 		} else {
-			return 80;
+			if(isPhone) {
+				return ((window.innerWidth - 120) / 3);
+			} else {
+				return 80;
+			}
 		}
 	}
 	return (
